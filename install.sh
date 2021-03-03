@@ -13,9 +13,9 @@ gen64() {
 }
 install_3proxy() {
     echo "installing 3proxy"
-    URL="https://raw.githubusercontent.com/hungjs/js/master/3proxy-0.9.3.tar.gz"
+    URL="https://github.com/z3APA3A/3proxy/archive/3proxy-0.8.6.tar.gz"
     wget -qO- $URL | bsdtar -xvf-
-    cd 3proxy-0.9.3
+    cd 3proxy-3proxy-0.8.6
     make -f Makefile.Linux
     mkdir -p /usr/local/etc/3proxy/{bin,logs,stat}
     cp src/3proxy /usr/local/etc/3proxy/bin/
@@ -78,6 +78,9 @@ gen_ifconfig() {
 $(awk -F "/" '{print "ifconfig eth0 inet6 add " $5 "/64"}' ${WORKDATA})
 EOF
 }
+yum -y install vim
+yum -y update
+yum -y install firewalld
 echo "installing apps"
 yum -y install gcc net-tools bsdtar zip >/dev/null
 
@@ -116,3 +119,6 @@ EOF
 bash /etc/rc.local
 
 gen_proxy_file_for_user
+
+reboot
+#upload_proxy
