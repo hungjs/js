@@ -81,6 +81,7 @@ EOF
 yum -y install vim
 yum -y update
 yum -y install firewalld
+yum -y install wget
 echo "installing apps"
 yum -y install gcc net-tools bsdtar zip >/dev/null
 
