@@ -78,10 +78,11 @@ gen_ifconfig() {
 $(awk -F "/" '{print "ifconfig eth0 inet6 add " $5 "/64"}' ${WORKDATA})
 EOF
 }
-yum -y install vim
 yum -y update
-yum -y install firewalld
 yum -y install wget
+yum -y install vim
+yum -y install firewalld
+
 echo "installing apps"
 yum -y install gcc net-tools bsdtar zip >/dev/null
 
@@ -121,5 +122,3 @@ bash /etc/rc.local
 
 gen_proxy_file_for_user
 
-reboot
-#upload_proxy
